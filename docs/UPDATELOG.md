@@ -1,13 +1,13 @@
 # 更新日志
 
-> [@cuiko/for-editor](https://github.com/HerbertHe/for-editor-herb)
+> [@cuiko/for-editor](https://github.com/cuiko/for-editor.git)
 >> 说明：[+] 新增、[!] bug、[*] 优化、[-] 删除
 
 - 2020-10-10
   - v1.0.1:
     - [+] 添加 `jest` 测试框架
     - [!] 修复 `undo`、`redo` 效果与预期不符
-    - [*] 优化预览区右上角大纲，在标题过多时，过小
+    - [*] 优化预览区右上角大纲，在标题过多时的字体显示
 - 2020-10-06
   - v1.0.0:
     - [+] 添加 `realtimeRender`、`realtimeRenderDelay` 参数，决定是否需要实时渲染

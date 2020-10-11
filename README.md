@@ -1,9 +1,9 @@
 # for-editor
 
-[![version](https://img.shields.io/npm/v/for-editor-herb.svg)](https://www.npmjs.com/package/for-editor-herb)
-[![download](https://img.shields.io/npm/dm/for-editor-herb.svg)](https://www.npmjs.com/package/for-editor-herb)
-[![cnpmVersion](https://cnpmjs.org/badge/v/for-editor-herb.svg)](https://cnpmjs.org/package/for-editor-herb)
-[![cnpmDownload](https://cnpmjs.org/badge/d/for-editor-herb.svg)](https://cnpmjs.org/package/for-editor-herb)
+[![version](https://img.shields.io/npm/v/@cuiko/for-editor.svg)](https://www.npmjs.com/package/@cuiko/for-editor)
+[![download](https://img.shields.io/npm/dm/@cuiko/for-editor.svg)](https://www.npmjs.com/package/@cuiko/for-editor)
+[![cnpmVersion](https://cnpmjs.org/badge/v/@cuiko/for-editor.svg)](https://cnpmjs.org/package/@cuiko/for-editor)
+[![cnpmDownload](https://cnpmjs.org/badge/d/@cuiko/for-editor.svg)](https://cnpmjs.org/package/@cuiko/for-editor)
 
 > Markdown editor for React
 
@@ -302,8 +302,8 @@ class App extends React.Component {
 
 是的，它有一些小毛病
 
-- 1. 撤销、重做后光标会到最后一行，而不是，上次操作的位置
+1. 撤销、重做后光标会到最后一行，而不是，上次操作的位置
 
 ## Licence
 
-Copyright (c) 2020, cuiko. [MIT License](./LICENSE).
+Copyright (c) 2020 cuiko. [MIT License](./LICENSE).

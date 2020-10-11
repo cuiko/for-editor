@@ -130,36 +130,36 @@ class App extends Component<{}, IS> {
           <div className={styles.topLeft}>
             <h1>for-editor</h1>
             <div>
-              <a href="https://www.npmjs.com/package/for-editor-herb">
+              <a href="https://www.npmjs.com/package/@cuiko/for-editor">
                 <img
                   alt="version"
-                  src="https://img.shields.io/npm/v/for-editor-herb.svg"
+                  src="https://img.shields.io/npm/v/@cuiko/for-editor.svg"
                   width="80px"
                   height="20px"
                 />
               </a>
-              <a href="https://www.npmjs.com/package/for-editor-herb" style={{ marginLeft: '5px' }}>
+              <a href="https://www.npmjs.com/package/@cuiko/for-editor" style={{ marginLeft: '5px' }}>
                 <img
                   alt="download"
-                  src="https://img.shields.io/npm/dm/for-editor-herb.svg"
+                  src="https://img.shields.io/npm/dm/@cuiko/for-editor.svg"
                   width="140px"
                   height="20px"
                 />
               </a>
             </div>
             <div>
-              <a href="https://cnpmjs.org/package/for-editor-herb">
+              <a href="https://cnpmjs.org/package/@cuiko/for-editor">
                 <img
                   alt="cnpmVersion"
-                  src="https://cnpmjs.org/badge/v/for-editor-herb.svg"
+                  src="https://cnpmjs.org/badge/v/@cuiko/for-editor.svg"
                   width="80px"
                   height="20px"
                 />
               </a>
-              <a href="https://cnpmjs.org/package/for-editor-herb" style={{ marginLeft: '5px' }}>
+              <a href="https://cnpmjs.org/package/@cuiko/for-editor" style={{ marginLeft: '5px' }}>
                 <img
                   alt="cnpmDownload"
-                  src="https://cnpmjs.org/badge/d/for-editor-herb.svg"
+                  src="https://cnpmjs.org/badge/d/@cuiko/for-editor.svg"
                   width="93px"
                   height="20px"
                 />
@@ -168,8 +168,8 @@ class App extends Component<{}, IS> {
           </div>
           <div className={styles.topRight}>
             <a
-              href="https://github.com/HerbertHe/for-editor-herb"
-              title="https://github.com/HerbertHe/for-editor-herb"
+              href="https://github.com/cuiko/for-editor.git"
+              title="https://github.com/cuiko/for-editor.git"
             >
               <svg
                 className="icon"

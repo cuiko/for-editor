@@ -1,4 +1,5 @@
 .DS_Store
+.git
 .vscode
 
 node_modules/
