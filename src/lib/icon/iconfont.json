@@ -1,0 +1,163 @@
+{
+  "id": "2082965",
+  "name": "foricon",
+  "font_family": "foricon",
+  "css_prefix_text": "for-icon-",
+  "description": "for-editor-sen",
+  "glyphs": [
+    {
+      "icon_id": "3670772",
+      "name": "分割线",
+      "font_class": "hr",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "7695194",
+      "name": "文本",
+      "font_class": "text",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "2858794",
+      "name": "标题",
+      "font_class": "heading",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "6536712",
+      "name": "列表",
+      "font_class": "list",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "1025135",
+      "name": "退出全屏",
+      "font_class": "quit-fullscreen",
+      "unicode": "e755",
+      "unicode_decimal": 59221
+    },
+    {
+      "icon_id": "1121075",
+      "name": "全屏",
+      "font_class": "enter-fullscreen",
+      "unicode": "e7a6",
+      "unicode_decimal": 59302
+    },
+    {
+      "icon_id": "2018142",
+      "name": "图片 ",
+      "font_class": "image",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "4111811",
+      "name": "代码",
+      "font_class": "code",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "4890461",
+      "name": "引用",
+      "font_class": "quote",
+      "unicode": "e6f4",
+      "unicode_decimal": 59124
+    },
+    {
+      "icon_id": "5327369",
+      "name": "表格",
+      "font_class": "table",
+      "unicode": "e6ca",
+      "unicode_decimal": 59082
+    },
+    {
+      "icon_id": "5651526",
+      "name": "显示、可见",
+      "font_class": "visible",
+      "unicode": "e68f",
+      "unicode_decimal": 59023
+    },
+    {
+      "icon_id": "5651533",
+      "name": "隐藏、不可见",
+      "font_class": "invisible",
+      "unicode": "e694",
+      "unicode_decimal": 59028
+    },
+    {
+      "icon_id": "5920501",
+      "name": "链接",
+      "font_class": "link",
+      "unicode": "e7ff",
+      "unicode_decimal": 59391
+    },
+    {
+      "icon_id": "6337453",
+      "name": "分栏",
+      "font_class": "subfield",
+      "unicode": "ec7f",
+      "unicode_decimal": 60543
+    },
+    {
+      "icon_id": "6966887",
+      "name": "保存",
+      "font_class": "save",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "7817902",
+      "name": "目录",
+      "font_class": "outline",
+      "unicode": "e6aa",
+      "unicode_decimal": 59050
+    },
+    {
+      "icon_id": "9176333",
+      "name": "列表搜索状态",
+      "font_class": "collapse",
+      "unicode": "e662",
+      "unicode_decimal": 58978
+    },
+    {
+      "icon_id": "10352332",
+      "name": "添加公式",
+      "font_class": "katex",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "11177860",
+      "name": "更多",
+      "font_class": "more",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "11177989",
+      "name": "撤销",
+      "font_class": "undo",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "11177990",
+      "name": "重做",
+      "font_class": "redo",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "15282914",
+      "name": "信息",
+      "font_class": "hint",
+      "unicode": "e6f5",
+      "unicode_decimal": 59125
+    }
+  ]
+}

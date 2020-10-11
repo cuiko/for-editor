@@ -1,0 +1,7 @@
+*.d.ts
+
+node_modules
+dist
+demo
+coverage
+src/lib/icon

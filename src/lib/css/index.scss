@@ -1,0 +1,815 @@
+$borderRadius_width: 8px;
+
+.for-container {
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  height: 600px;
+  border: 1px solid #ddd;
+  border-radius: $borderRadius_width;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 12px;
+  background: #fff;
+  font-size: 14px;
+  width: 100%;
+
+  ul,
+  ol,
+  li {
+    margin: 0;
+    padding: 0;
+  }
+
+  // 全屏样式
+  &.for-fullscreen {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100% !important;
+  }
+
+  .for-hidden {
+    display: none;
+  }
+
+  // 工具栏
+  .for-toolbar {
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 0 6px;
+    border-bottom: 1px solid #ddd;
+    color: #555;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    border-top-left-radius: $borderRadius_width;
+    border-top-right-radius: $borderRadius_width;
+
+    > .for-toolbar-left-pc,
+    .for-toolbar-left-mobile,
+    .for-toolbar-right-pc,
+    .for-toolbar-right-mobile {
+      > ul {
+        display: -webkit-box;
+        display: flex;
+        > .for-separator {
+          display: flex;
+          align-items: center;
+          &::before {
+            content: '';
+            display: inline-block;
+            height: 50%;
+            width: 1px;
+            background-color: #ddd;
+          }
+        }
+        > li {
+          display: -webkit-box;
+          display: flex;
+          -webkit-box-align: center;
+          align-items: center;
+          padding: 4px 6px;
+          margin: 8px 4px;
+          border-radius: 4px;
+          line-height: normal;
+
+          &.for-toolbar-img,
+          &.for-toolbar-para,
+          &.for-toolbar-title,
+          &.for-toolbar-more,
+          &.for-toolbar-code,
+          &.for-toolbar-hint,
+          &.for-toolbar-list {
+            position: relative;
+
+            > ul {
+              position: absolute;
+              top: 100%;
+              left: -50px;
+              width: 140px;
+              margin-top: 4px;
+              background: #fff;
+              border-radius: 4px;
+              box-shadow: rgba(0, 0, 0, 0.1) 0 2px 8px 0;
+              z-index: 99;
+              line-height: 2.8;
+              text-align: center;
+              list-style: none;
+
+              li {
+                position: relative;
+
+                &:hover {
+                  background: #e9e9e9;
+                }
+
+                &:first-child {
+                  border-radius: 4px 4px 0 0;
+                }
+
+                &:last-child {
+                  border-radius: 0 0 4px 4px;
+                }
+
+                input[type="file"] {
+                  position: absolute;
+                  width: 100%;
+                  opacity: 0;
+                  left: 0;
+                  top: 0;
+                  bottom: 0;
+                  cursor: pointer;
+                }
+                span {
+                  padding: 0 5px;
+                }
+              }
+            }
+          }
+
+          &.for-active {
+            background: #ddd;
+          }
+
+          &:hover {
+            cursor: pointer;
+            background: #e9e9e9;
+          }
+
+          i {
+            font-size: 1.2em;
+          }
+        }
+      }
+    }
+    > .for-toolbar-left-pc {
+      display: -webkit-box;
+      display: flex;
+      width: calc(100% - 110px);
+      > ul {
+        flex-wrap: wrap;
+        width: 100%;
+        align-content: flex-start;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        flex-direction: row;
+      }
+    }
+    > .for-toolbar-right-pc {
+      display: -webkit-box;
+      display: flex;
+      width: 110px;
+      > ul {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        flex-direction: row;
+        -webkit-box-pack: end;
+        justify-content: flex-end;
+        -webkit-box-align: center;
+        align-items: center;
+      }
+    }
+    > .for-toolbar-left-mobile {
+      display: none;
+      width: calc(100% - 75px);
+      > ul {
+        flex-wrap: wrap;
+        width: 100%;
+        align-content: flex-start;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        flex-direction: row;
+      }
+    }
+    > .for-toolbar-right-mobile {
+      display: none;
+      width: 75px;
+      > ul {
+        flex-wrap: wrap;
+        width: 100%;
+        align-content: flex-end;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        flex-direction: row;
+      }
+    }
+
+    @media screen and (max-width: '900px') {
+      > .for-toolbar-left-pc {
+        display: none;
+      }
+      > .for-toolbar-left-mobile {
+        display: -webkit-box;
+        display: flex;
+      }
+      > .for-toolbar-right-pc {
+        display: none;
+      }
+      > .for-toolbar-right-mobile {
+        display: -webkit-box;
+        display: flex;
+      }
+    }
+  }
+
+  // 编辑器
+  .for-editor {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    height: 100%;
+    color: #2c3e50;
+    border-bottom-left-radius: $borderRadius_width;
+    border-bottom-right-radius: $borderRadius_width;
+    overflow: hidden;
+    position: relative;
+
+    .for-panel {
+      height: 100%;
+      -webkit-box-flex: 0;
+      flex: 0 0 100%;
+      overflow: auto;
+      -webkit-transition: all 0.2s linear 0s;
+      transition: all 0.2s linear 0s;
+      position: relative;
+
+      &.for-editor-subfield {
+        -webkit-box-flex: 0;
+        flex: 0 0 50%;
+      }
+
+      .for-preview {
+        min-height: 100%;
+        box-sizing: border-box;
+        padding: 10px 14px;
+        background: #fcfcfc;
+      }
+    }
+
+    // 编辑区域
+    .for-editor-edit {
+      line-height: 1.6;
+      height: 100%;
+
+      .for-editor-block {
+        display: -webkit-box;
+        display: flex;
+        min-height: 100%;
+      }
+
+      // 行号、
+      .for-line-num {
+        list-style: none;
+        background: #eee;
+        padding: 8px 3px 120px;
+        min-width: 30px;
+        text-align: center;
+        &.hidden {
+          display: none;
+        }
+        li {
+          list-style: none;
+        }
+      }
+
+      // 编辑器主体
+      .for-editor-content {
+        -webkit-box-flex: 1;
+        flex: 1;
+        position: relative;
+        height: 100%;
+        margin-left: 10px;
+
+        pre {
+          padding: 8px 0;
+          display: block;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+          visibility: hidden;
+          margin: 0;
+          font-family: inherit;
+        }
+
+        textarea {
+          font-family: 'Consolas', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+          // box-sizing: border-box;
+          position: absolute;
+          top: 8px;
+          bottom: 0;
+          // padding: 8px 0;
+          border: none;
+          display: block;
+          height: auto;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          resize: none;
+          border: none;
+          outline: none;
+          font-size: inherit;
+          color: inherit;
+          background: none;
+          line-height: inherit;
+        }
+      }
+    }
+
+    // 预览区域
+    .for-editor-preview {
+      .for-markdown-preview {
+        line-height: 2;
+    
+        p,
+        blockquote,
+        ul,
+        ol,
+        dl,
+        pre {
+          margin-top: 0;
+          margin-bottom: 0.6em;
+        }
+    
+        h1,
+        h2 {
+          border-bottom: 1px solid #e2e2e2;
+        }
+    
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          padding: 0;
+          margin: 0 0 0.6em;
+          font-weight: 600;
+    
+          text-indent: 0;
+    
+          &:target {
+            padding-top: 4.5rem;
+          }
+        }
+    
+        // 重写锚点部分样式
+        .for-anchor {
+          color: #74b9ff;
+          padding: 0 5px;
+        }
+    
+        .for-heading:hover + .for-anchor {
+          color: #0984e3;
+        }
+    
+        .for-anchor:hover {
+          color: #0984e3;
+        }
+    
+        // 重写折叠块样式
+        details {
+          background-color: #f0f0f0;
+          border-radius: 3px;
+          padding: 0.6em;
+        }
+        summary {
+          outline: none;
+          cursor: pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+    
+        .emojione {
+          width:  1.3em;
+          height: 1.3em;
+          margin: 0;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+
+        // Tex渲染分行
+        .katex-html > .mspace {
+          height: 10px;
+        }
+    
+        // 写kbd样式
+        kbd {
+          background-color: white;
+          box-shadow: 0 0 2px grey;
+          padding: 3px;
+          border-radius: 2px;
+          font-weight: 600;
+        }
+    
+        a {
+          color: #0366d6;
+          text-decoration: none;
+    
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+    
+        ul,
+        ol {
+          padding: 0.2em 0.8em;
+    
+          > li {
+            line-height: 2;
+            padding-left: 0.2em;
+            margin-left: 0.2em;
+            list-style-type: disc;
+    
+            > p {
+              text-indent: 0;
+            }
+    
+            > ul {
+              &:last-child {
+                margin-bottom: 0;
+              }
+    
+              li {
+                list-style-type: circle;
+    
+                > ul li {
+                  list-style-type: square;
+                }
+              }
+            }
+          }
+        }
+    
+        > ul,
+        ol {
+          padding: 0 20px;
+        }
+    
+        ol > li {
+          list-style-type: decimal;
+        }
+    
+        blockquote {
+          margin: 0;
+          margin-bottom: 0.6em;
+          padding: 0 1em;
+          color: #6a737d;
+          border-left: 0.25em solid #dfe2e5;
+    
+          p {
+            text-indent: 0;
+    
+            &:first-child {
+              margin-top: 0;
+            }
+    
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+    
+        // code
+        .for-code {
+          $bg_color: #21252b;
+
+          position: relative;
+          background: $bg_color;
+          border-radius: 5px;
+          font-family: "Microsoft YaHei", Arial,Sans-Serif;
+          line-height: 1.6;
+          margin-bottom: 1.6em;
+          max-width: 100%;
+          overflow: auto;
+          text-shadow: none;
+          color: #000;
+          padding-top: 30px;
+          box-shadow: 0 0 14px 0 rgba(0,0,0,.4);
+          &::before {
+            content: " ";
+            position: absolute;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            background: #fc625d;
+            width: 12px;
+            height: 12px;
+            left: 12px;
+            margin-top: -20px;
+            -webkit-box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+            box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+            z-index: 2;
+            box-sizing: border-box;
+          }
+          & *::selection {
+            background: #fff;
+            color: $bg_color;
+          }
+          code {
+            background: #1d1f21;
+            color: #fff;
+            word-break: break-word;
+            font-family: source code pro, monospace, Helvetica, Tahoma, Arial, STXihei, stheiti light, microsoft yahei, sans-serif;
+            text-shadow: none;
+            &[data-lang]::before {
+              color: #fff;
+              content: attr(data-lang);
+              height: 30px;
+              line-height: 30px;
+              background: $bg_color;
+              font-size: 1.05em;
+              text-transform: uppercase;
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              font-family: sans-serif;
+              font-weight: 700;
+              padding: 0 80px;
+              text-indent: 15px;
+              text-align: center;
+              float: left;
+              z-index: 1;
+              border-radius: 5px 5px 0 0;
+              border-top-left-radius: 5px;
+              border-top-right-radius: 5px;
+              border-bottom-right-radius: 0;
+              border-bottom-left-radius: 0;
+              pointer-events: none;
+              box-sizing: border-box;
+            }
+          }
+        }
+        // inline code
+        .for-codespan {
+          padding: .2em .4em;
+          margin: 0;
+          font-size: 85%;
+          background-color: rgba(27,31,35,.05);
+          border-radius: 3px;
+        }
+        
+
+    
+        hr {
+          margin-bottom: 0.6em;
+          height: 1px;
+          background: #dadada;
+          border: none;
+        }
+    
+        table {
+          width: 100%;
+          border: 1px solid #ddd;
+          margin-bottom: 0.6em;
+          border-collapse: collapse;
+          text-align: left;
+    
+          thead {
+            background: #eee;
+          }
+    
+          th,
+          td {
+            padding: 0.1em 0.4em;
+            border: 1px solid #ddd;
+          }
+        }
+    
+        .for-img {
+          display: block;
+          margin: 0 auto;
+          max-width: 100%;
+          margin-bottom: 0.6em;
+        }
+
+        mark {
+          padding: 0 3px;
+          font-size: 0.94em;
+          word-break: break-word;
+          background: rgba(255,229,100,0.2);
+          color: #1a1a1a;
+        }
+
+        .for-hint {
+          display: flex;
+          align-items: center;
+          border-radius: 3px;
+          border-left-width: 3.2px;
+          border-left-style: solid;
+          margin: 10px 0;
+          padding: 4px 0;
+          background-color: #F5F7F9;
+          &.info {
+            $blue: #2D82FF;
+            border-left-color: $blue;
+            .for-hint-icon {
+              color: $blue;
+            }
+          }
+          &.warning {
+            $orange: #FF7C00;
+            border-left-color: $orange;
+            .for-hint-icon {
+              color: $orange;
+            }
+          }
+          &.danger {
+            $red: #FF413B;
+            border-left-color: $red;
+            .for-hint-icon {
+              color: $red;
+            }
+          }
+          &.success {
+            $green: #08D070;
+            border-left-color: $green;
+            .for-hint-icon {
+              color: $green;
+            }
+          }
+          .for-hint-icon {
+            display: inline-flex;
+            font-size: 1.3em;
+            margin: 0 5px;
+          }
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    // 隐藏编辑区
+    .for-editor-edit-hidden {
+      width: 0;
+      -webkit-box-flex: 0;
+      flex: 0 0 0;
+    }
+
+    // 悬浮大纲
+    .for-outline-box {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 15px;
+      right: 30px;
+      z-index: 999;
+      background-color: white;
+      border-radius: 3px;
+      box-shadow: 0 0 2px grey;
+      padding: 0px;
+      -webkit-transition: height 1s, width 1s;
+      transition: height 1s, width 1s;
+      overflow: hidden;
+
+      > .for-outline-title {
+        height: 30px;
+        width: 30px;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        flex-direction: row;
+        -webkit-box-pack: start;
+        justify-content: flex-start;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-transition: width 1s;
+        transition: width 1s;
+        > i {
+          font-size: 28px;
+        }
+      }
+      > .for-outline-body {
+        width: 100%;
+        height: calc(100% - 30px);
+        margin-top: 5px;
+        padding-left: 5px;
+        > ul {
+          height: 0px;
+          -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+          -webkit-transition: height 1s;
+          transition: height 1s;
+          overflow-x: hidden;
+          overflow-y: scroll;
+          -ms-overflow-style: none;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+          > li {
+            opacity: 0;
+            overflow: hidden;
+            -webkit-transition-delay: 1s;
+            transition-delay: 1s;
+            -webkit-transition: all 1s;
+            transition: all 1s;
+          }
+        }
+      }
+    }
+    .for-outline-box:hover {
+      height: 300px;
+      width: 200px;
+      padding: 5px;
+      > .for-outline-title {
+        width: 100%;
+        border-bottom: 1px solid #d6d6d6;
+      }
+      > .for-outline-body {
+        > ul {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          > li {
+            width: 100%;
+            height: 1.35em;
+            overflow: hidden;
+            flex: 0 0 auto;
+            opacity: 1;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            > a {
+              text-decoration: none;
+              color: black;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              width: 90%;
+              overflow: hidden;
+              padding-left: 2px;
+            }
+            &:hover {
+              background-color: #f0f0f0;
+            }
+          }
+          $marginLeft: 10px;
+          @for $i from 1 through 6 {
+            > .for-outline-h#{$i} {
+              margin-left: ($i - 1) * $marginLeft;
+            }
+          }
+          > .for-outline-h1 {
+            > a {
+              font-size: 1.35em;
+              font-weight: 700;
+            }
+          }
+          > .for-outline-h2 {
+            > a {
+              font-size: 1.2em;
+              font-weight: 400;
+            }
+          }
+          > .for-outline-h3 {
+            > a {
+              font-size: 1.1em;
+              font-weight: 400;
+            }
+          }
+          > .for-outline-h4 {
+            > a {
+              font-size: 1em;
+              font-weight: 400;
+            }
+          }
+          > .for-outline-h5 {
+            > a {
+              font-size: .9em;
+              font-weight: 400;
+            }
+          }
+          > .for-outline-h6 {
+            > a {
+              font-size: .85em;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+    }
+  }
+}
