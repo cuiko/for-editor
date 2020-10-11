@@ -294,15 +294,15 @@ class App extends React.Component {
 | Ctrl + Z | undo        |
 | Ctrl + Y | redo        |
 
-## Update
-
-* [Update Log](./docs/UPDATELOG.md)
-
 ## Bug
 
 是的，它有一些小毛病
 
 1. 撤销、重做后光标会到最后一行，而不是，上次操作的位置
+
+## Update
+
+* [Update Log](./docs/UPDATELOG.md)
 
 ## Licence
 

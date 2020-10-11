@@ -1,7 +1,8 @@
 # 更新日志
 
 > [@cuiko/for-editor](https://github.com/cuiko/for-editor.git)
->> 说明：[+] 新增、[!] bug、[*] 优化、[-] 删除
+
+> 说明：[+] 新增 [!] bug [*] 优化 [-] 删除
 
 - 2020-10-10
   - v1.0.1:
@@ -18,7 +19,7 @@
     - [*] 预览部分的解析由 [marked](https://github.com/markedjs/marked) 更换为 [markdown-it](https://github.com/markdown-it/markdown-it)，以便更好地拓展语法
     - [*] 优化部分通过 `insertText` 方法插入到 `textarea` 的字符显示
     - [*] 修改预览的部分标签样式(包括但不限于`code`、`inline code`、`mark`)
-    - [-] 删除对日本、台湾的语言支持(后续再重新翻译一份)
+    - [-] 删除日语、繁体中文语言包(后续再重新翻译一份)
 
 
 - [分支基于 de5498ed7713990399d17dfe3ff3fa4cd9e3fe7f](https://github.com/HerbertHe/for-editor-herb/commit/de5498ed7713990399d17dfe3ff3fa4cd9e3fe7f)
