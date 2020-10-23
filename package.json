@@ -15,10 +15,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": [
-        "npm run build-demo",
-        "npm run dist"
-      ]
+      "pre-push": "npm run build-demo && npm run dist"
     }
   },
   "jest": {
