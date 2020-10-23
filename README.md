@@ -120,14 +120,6 @@ ReactDOM.render(<App />, document.getElementById('root'))
   | outline | boolean | true | 是否在预览时显示大纲 |
   | highlight | Function | - | 自定义`hljs`支持的语言 |
 
-### Events
-
-| 参数名 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| onChange | Function | - | 内容改变时触发 |
-| onSave | Function | - | 保存时触发 |
-| addImg | Function(File) | - | 添加图片时触发 |
-
 ```js
 // toolbar 说明
 /*
@@ -246,9 +238,17 @@ interface IWords {
 }
 ```
 
+### Events
+
+| 参数名 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| onChange | Function | - | 内容改变时触发 |
+| onSave | Function | - | 保存时触发 |
+| addImg | Function(File) | - | 添加图片时触发 |
+
 ### Upload Image
 
-```js
+```ts
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -264,7 +264,7 @@ class App extends React.Component {
     })
   }
 
-  addImg($file) {
+  addImg($file: File) {
     console.log($file) // The $file type is File
     // upload file => success => call $img2Url
     this.$vm.current.$img2Url($file.name, 'file_url')
@@ -298,7 +298,8 @@ class App extends React.Component {
 
 是的，它有一些小毛病
 
-1. 撤销、重做后光标会到最后一行，而不是，上次操作的位置
+1. 撤销、重做后光标会到最后一行，而不是上次操作的位置
+2. 在不同的缩放下，行号会有不同的显示
 
 ## Update
 

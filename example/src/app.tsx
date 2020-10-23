@@ -209,7 +209,6 @@ class App extends Component<{}, IS> {
               height="500px"
               language={customLang}
               value={value}
-              subfield={true}
               onChange={(value) => this.handleChange(value)}
               onSave={(value, parsed) => this.handleSave(value, parsed)}
               highlight={Hljs}

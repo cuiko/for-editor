@@ -60,9 +60,9 @@ class Toolbars extends React.Component<IP, {}> {
                 title={words.preview}
               >
                 {previewActive ? (
-                  <i className="foricon for-icon-invisible" />
-                ) : (
                   <i className="foricon for-icon-visible" />
+                ) : (
+                  <i className="foricon for-icon-invisible" />
                 )}
               </li>
             )}
@@ -101,9 +101,9 @@ class Toolbars extends React.Component<IP, {}> {
                 title={words.preview}
               >
                 {previewActive ? (
-                  <i className="foricon for-icon-invisible" />
-                ) : (
                   <i className="foricon for-icon-visible" />
+                ) : (
+                  <i className="foricon for-icon-invisible" />
                 )}
               </li>
             )}

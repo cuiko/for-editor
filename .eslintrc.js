@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['eslint-config-for/react', 'eslint-config-for/typescript'],
+  extends: ['@cuiko/eslint-config/react', '@cuiko/eslint-config/typescript'],
   rules: {
     
   }

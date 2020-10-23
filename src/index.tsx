@@ -10,7 +10,7 @@ import { insertText, asyncMaker } from './lib/helpers/function'
 import { outlined, generateTOC } from './lib/helpers/outlined'
 const elementResizeDetectorMaker = require('element-resize-detector')
 
-import 'highlight.js/scss/atom-one-dark.scss'
+import './lib/css/atom-one-dark.scss'
 import './lib/icon/iconfont.css'
 import './lib/css/index.scss'
 import './lib/katex/katex.min.css'

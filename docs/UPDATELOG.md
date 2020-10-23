@@ -4,6 +4,14 @@
 
 > 说明：[+] 新增 [!] bug [*] 优化 [-] 删除
 
+- 2020-10-11
+  - v1.0.3:
+    - [!] 发现 bug，在不同缩放下，行号会有不同的显示(跟进中)
+    - [!] 修复预览图标可视和不可视的图标显示相反
+    - [*] 代码优化
+  - v1.0.2:
+    - 发布到 `npm`
+    - 修改了部分 `.md` 文档
 - 2020-10-10
   - v1.0.1:
     - [+] 添加 `jest` 测试框架
@@ -16,7 +24,7 @@
     - [+] 添加水平线
     - [+] 添加部分新图标以及更换部分原图标
     - [!] 修复切换分栏模式时，行号计算错误
-    - [*] 预览部分的解析由 [marked](https://github.com/markedjs/marked) 更换为 [markdown-it](https://github.com/markdown-it/markdown-it)，以便更好地拓展语法
+    - [*] 预览部分的解析由 [marked](https://github.com/markedjs/marked) 更换为 [markdown-it](https://github.com/markdown-it/markdown-it)，以便更好地拓展功能
     - [*] 优化部分通过 `insertText` 方法插入到 `textarea` 的字符显示
     - [*] 修改预览的部分标签样式(包括但不限于`code`、`inline code`、`mark`)
     - [-] 删除日语、繁体中文语言包(后续再重新翻译一份)
