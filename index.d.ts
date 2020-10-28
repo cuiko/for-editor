@@ -48,6 +48,7 @@ export interface IEditorToolbar {
   subfield?: boolean // 分栏显示
   preview?: boolean // 默认预览
   expand?: boolean // 全屏显示
+  wordwrap?: boolean // 自动换行
 }
 
 // 工具栏选项描述
@@ -103,6 +104,7 @@ export interface IEditorWords {
   preview?: string
   singleColumn?: string
   doubleColumn?: string
+  wordwrap?: string
 }
 
 // 组件选项

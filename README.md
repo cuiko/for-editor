@@ -19,14 +19,15 @@
 
 ## Todo
 
+- [x] 快捷键`Alt` + `z`切换自动换行
 - [ ] README_EN.md
-- [ ] 编写`markdown-it`拓展，提供插入自定义`iframe`的支持，方便得插入视频
+- [ ] 编写`markdown-it`拓展，提供插入自定义`iframe`的支持，方便插入视频
 - [ ] 提供相册(多张图片展示)支持
 - [ ] `emoji`表情展示，方便插入
 - [ ] 提供首字下沉支持
 - [ ] 其他语言的支持
 - [ ] ~~提供音乐播放器支持~~
-- [ ] ~~快捷键`Shift` + `del`删除当前行~~
+- [ ] ~~快捷键`shift` + `del`删除当前行~~
 
 ## Install
 
@@ -173,6 +174,7 @@ toolbar: {
   subfield: true,
   preview: true,
   expand: true,
+  wordwrap: true,
 }
 ```
 
@@ -235,6 +237,7 @@ interface IWords {
   preview?: string
   singleColumn?: string
   doubleColumn?: string
+  wordwrap?: string
 }
 ```
 
@@ -289,17 +292,18 @@ class App extends React.Component {
 
 | name     | description |
 | ------   | ----------- |
-| Tab      | two space   |
-| Ctrl + S | save        |
-| Ctrl + Z | undo        |
-| Ctrl + Y | redo        |
+| tab      | two space   |
+| ctrl + s | save        |
+| ctrl + z | undo        |
+| ctrl + y | redo        |
+| alt + z  | word wrap   |
 
 ## Bug
 
 是的，它有一些小毛病
 
 1. 撤销、重做后光标会到最后一行，而不是上次操作的位置
-2. 在不同的缩放下，行号会有不同的显示
+2. ~~在不同的缩放下，行号会有不同的显示~~
 
 ## Update
 

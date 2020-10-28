@@ -179,19 +179,19 @@ class Toolbars extends React.Component<IP, IS> {
           <ul>
             {/* 撤销 */}
             {toolbar.undo && (
-              <li onClick={() => this.onClick('undo')} title={`${words.undo} (Ctrl + Z)`}>
+              <li onClick={() => this.onClick('undo')} title={`${words.undo} (ctrl + z)`}>
                 <i className="foricon for-icon-undo" />
               </li>
             )}
             {/* 重做 */}
             {toolbar.redo && (
-              <li onClick={() => this.onClick('redo')} title={`${words.redo} (Ctrl + Y)`}>
+              <li onClick={() => this.onClick('redo')} title={`${words.redo} (ctrl + y)`}>
                 <i className="foricon for-icon-redo" />
               </li>
             )}
             {/* 保存 */}
             {toolbar.save && (
-              <li onClick={() => this.onClick('save')} title={`${words.save} (Ctrl + S)`}>
+              <li onClick={() => this.onClick('save')} title={`${words.save} (ctrl + s)`}>
                 <i className="foricon for-icon-save" />
               </li>
             )}
@@ -446,7 +446,7 @@ class Toolbars extends React.Component<IP, IS> {
             {/* 插入目录 */}
             {toolbar.toc && (
               <li onClick={() => this.onClick('toc')} title={words.toc}>
-                <i className="foricon for-icon-outline" />
+                <i className="foricon for-icon-outline1" />
               </li>
             )}
           </ul>
@@ -457,19 +457,19 @@ class Toolbars extends React.Component<IP, IS> {
           <ul>
             {/* 撤销 */}
             {toolbar.undo && (
-              <li onClick={() => this.onClick('undo')} title={`${words.undo} (Ctrl + Z)`}>
+              <li onClick={() => this.onClick('undo')} title={`${words.undo} (ctrl + z)`}>
                 <i className="foricon for-icon-undo" />
               </li>
             )}
             {/* 重做 */}
             {toolbar.redo && (
-              <li onClick={() => this.onClick('redo')} title={`${words.redo} (Ctrl + Y)`}>
+              <li onClick={() => this.onClick('redo')} title={`${words.redo} (ctrl + y)`}>
                 <i className="foricon for-icon-redo" />
               </li>
             )}
             {/* 保存 */}
             {toolbar.save && (
-              <li onClick={() => this.onClick('save')} title={`${words.save} (Ctrl + S)`}>
+              <li onClick={() => this.onClick('save')} title={`${words.save} (ctrl + s)`}>
                 <i className="foricon for-icon-save" />
               </li>
             )}
@@ -738,7 +738,7 @@ class Toolbars extends React.Component<IP, IS> {
                 {/* 插入目录 */}
                 {toolbar.toc && (
                   <li onClick={() => this.onClick('toc')} title={words.toc}>
-                    <i className="foricon for-icon-outline" />
+                    <i className="foricon for-icon-outline1" />
                     <span>{words.toc}</span>
                   </li>
                 )}

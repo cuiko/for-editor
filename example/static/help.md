@@ -34,13 +34,33 @@ x~1~
 
 ## emoji
 
-China: :cn: Japan: :jp: US: :us:
+|emoji|	emoji代码	|commit 说明
+|----|----|----|
+|:art: (调色板)|	```:art:```	|改进代码结构/代码格式
+|:zap: (闪电):racehorse: (赛马)|	```:zap::racehorse:```	|提升性能
+|:fire: (火焰)|	```:fire:```|	移除代码或文件
+|:bug: (bug)|	```:bug:```	|修复 bug
+|:ambulance: (急救车)|	```:ambulance:```|	重要补丁
+|:sparkles: (火花)|	```:sparkles:```	|引入新功能
+|:memo: (备忘录)	|```:memo:```	|撰写文档
+|:rocket: (火箭)	|```:rocket:```	|部署功能
+|:lipstick: (口红)	|```:lipstick:```	|更新 UI 和样式文件
+|:tada: (庆祝)	|```:tada:```	|初次提交
+|:white_check_mark: (白色复选框)	|```:white_check_mark:```	|增加测试
+|:bookmark: (书签)|	```:bookmark:```	|发行/版本标签
+|:construction: (施工)|	```:construction:```	|工作进行中
+|:hammer: (锤子)|	```:hammer:```	|重大重构
+|:wrench: (扳手)	|```:wrench:```	|修改配置文件
+|:globe_with_meridians: (地球)|	```:globe_with_meridians:```|	国际化与本地化
+|:pencil2: (铅笔)|	```:pencil2:```|	修复 typo
 
 > Wanna know which emoji is supported, visit: [joypixels](https://www.joypixels.com/emoji)
 
+> Emoji short name list, [reference](https://gist.github.com/oliveratgithub/0bf11a9aff0d6da7b46f1490f86a71eb)
+
 ## Link
 
-[Demo](http://demo.cuiko.top/for-editor/)
+[demo page](http://demo.cuiko.top/for-editor/)
 
 ## Quote
 

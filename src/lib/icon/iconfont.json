@@ -6,11 +6,81 @@
   "description": "for-editor-sen",
   "glyphs": [
     {
-      "icon_id": "3670772",
-      "name": "分割线",
+      "icon_id": "11316151",
+      "name": "代码",
+      "font_class": "code",
+      "unicode": "e6cb",
+      "unicode_decimal": 59083
+    },
+    {
+      "icon_id": "4986394",
+      "name": "右缩进",
+      "font_class": "collapse",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "13514018",
+      "name": "公式",
+      "font_class": "katex",
+      "unicode": "e7dd",
+      "unicode_decimal": 59357
+    },
+    {
+      "icon_id": "6966911",
+      "name": "减",
       "font_class": "hr",
-      "unicode": "e601",
-      "unicode_decimal": 58881
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "13651609",
+      "name": "列表",
+      "font_class": "list",
+      "unicode": "e8d4",
+      "unicode_decimal": 59604
+    },
+    {
+      "icon_id": "11177713",
+      "name": "链接",
+      "font_class": "link",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "11177761",
+      "name": "相册",
+      "font_class": "image",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "11177855",
+      "name": "展开更多",
+      "font_class": "wordwrap",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "4870195",
+      "name": "缩进",
+      "font_class": "suojin",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    },
+    {
+      "icon_id": "6339554",
+      "name": "表格",
+      "font_class": "table",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "15225942",
+      "name": "目录",
+      "font_class": "outline1",
+      "unicode": "e81b",
+      "unicode_decimal": 59419
     },
     {
       "icon_id": "7695194",
@@ -27,13 +97,6 @@
       "unicode_decimal": 58882
     },
     {
-      "icon_id": "6536712",
-      "name": "列表",
-      "font_class": "list",
-      "unicode": "e659",
-      "unicode_decimal": 58969
-    },
-    {
       "icon_id": "1025135",
       "name": "退出全屏",
       "font_class": "quit-fullscreen",
@@ -48,32 +111,11 @@
       "unicode_decimal": 59302
     },
     {
-      "icon_id": "2018142",
-      "name": "图片 ",
-      "font_class": "image",
-      "unicode": "e606",
-      "unicode_decimal": 58886
-    },
-    {
-      "icon_id": "4111811",
-      "name": "代码",
-      "font_class": "code",
-      "unicode": "e615",
-      "unicode_decimal": 58901
-    },
-    {
       "icon_id": "4890461",
       "name": "引用",
       "font_class": "quote",
       "unicode": "e6f4",
       "unicode_decimal": 59124
-    },
-    {
-      "icon_id": "5327369",
-      "name": "表格",
-      "font_class": "table",
-      "unicode": "e6ca",
-      "unicode_decimal": 59082
     },
     {
       "icon_id": "5651526",
@@ -88,13 +130,6 @@
       "font_class": "invisible",
       "unicode": "e694",
       "unicode_decimal": 59028
-    },
-    {
-      "icon_id": "5920501",
-      "name": "链接",
-      "font_class": "link",
-      "unicode": "e7ff",
-      "unicode_decimal": 59391
     },
     {
       "icon_id": "6337453",
@@ -113,23 +148,9 @@
     {
       "icon_id": "7817902",
       "name": "目录",
-      "font_class": "outline",
+      "font_class": "outline2",
       "unicode": "e6aa",
       "unicode_decimal": 59050
-    },
-    {
-      "icon_id": "9176333",
-      "name": "列表搜索状态",
-      "font_class": "collapse",
-      "unicode": "e662",
-      "unicode_decimal": 58978
-    },
-    {
-      "icon_id": "10352332",
-      "name": "添加公式",
-      "font_class": "katex",
-      "unicode": "e619",
-      "unicode_decimal": 58905
     },
     {
       "icon_id": "11177860",

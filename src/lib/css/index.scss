@@ -2,10 +2,7 @@ $borderRadius_width: 8px;
 
 .for-container {
   font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
   flex-direction: column;
   height: 600px;
   border: 1px solid #ddd;
@@ -40,9 +37,7 @@ $borderRadius_width: 8px;
   // 工具栏
   .for-toolbar {
     font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
-    display: -webkit-box;
     display: flex;
-    -webkit-box-pack: justify;
     justify-content: space-between;
     padding: 0 6px;
     border-bottom: 1px solid #ddd;
@@ -51,8 +46,6 @@ $borderRadius_width: 8px;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
     flex-direction: row;
     border-top-left-radius: $borderRadius_width;
     border-top-right-radius: $borderRadius_width;
@@ -62,7 +55,7 @@ $borderRadius_width: 8px;
     .for-toolbar-right-pc,
     .for-toolbar-right-mobile {
       > ul {
-        display: -webkit-box;
+        width: 100%;
         display: flex;
         > .for-separator {
           display: flex;
@@ -76,14 +69,10 @@ $borderRadius_width: 8px;
           }
         }
         > li {
-          display: -webkit-box;
           display: flex;
-          -webkit-box-align: center;
-          align-items: center;
           padding: 4px 6px;
           margin: 8px 4px;
           border-radius: 4px;
-          line-height: normal;
 
           &.for-toolbar-img,
           &.for-toolbar-para,
@@ -155,32 +144,17 @@ $borderRadius_width: 8px;
       }
     }
     > .for-toolbar-left-pc {
-      display: -webkit-box;
       display: flex;
-      width: calc(100% - 110px);
+      // width: calc(100% - 110px);
       > ul {
-        flex-wrap: wrap;
-        width: 100%;
-        align-content: flex-start;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        flex-direction: row;
+
       }
     }
     > .for-toolbar-right-pc {
-      display: -webkit-box;
       display: flex;
-      width: 110px;
+      // width: 110px;
       > ul {
-        display: -webkit-box;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        flex-direction: row;
-        -webkit-box-pack: end;
-        justify-content: flex-end;
-        -webkit-box-align: center;
-        align-items: center;
+
       }
     }
     > .for-toolbar-left-mobile {
@@ -188,11 +162,7 @@ $borderRadius_width: 8px;
       width: calc(100% - 75px);
       > ul {
         flex-wrap: wrap;
-        width: 100%;
-        align-content: flex-start;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        flex-direction: row;
+        align-self: center;
       }
     }
     > .for-toolbar-right-mobile {
@@ -200,11 +170,8 @@ $borderRadius_width: 8px;
       width: 75px;
       > ul {
         flex-wrap: wrap;
-        width: 100%;
-        align-content: flex-end;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        flex-direction: row;
+        justify-content: flex-end;
+        align-self: center;
       }
     }
 
@@ -213,14 +180,12 @@ $borderRadius_width: 8px;
         display: none;
       }
       > .for-toolbar-left-mobile {
-        display: -webkit-box;
         display: flex;
       }
       > .for-toolbar-right-pc {
         display: none;
       }
       > .for-toolbar-right-mobile {
-        display: -webkit-box;
         display: flex;
       }
     }
@@ -228,9 +193,7 @@ $borderRadius_width: 8px;
 
   // 编辑器
   .for-editor {
-    display: -webkit-box;
     display: flex;
-    -webkit-box-pack: justify;
     justify-content: space-between;
     height: 100%;
     color: #2c3e50;
@@ -241,15 +204,12 @@ $borderRadius_width: 8px;
 
     .for-panel {
       height: 100%;
-      -webkit-box-flex: 0;
       flex: 0 0 100%;
       overflow: auto;
-      -webkit-transition: all 0.2s linear 0s;
       transition: all 0.2s linear 0s;
       position: relative;
 
       &.for-editor-subfield {
-        -webkit-box-flex: 0;
         flex: 0 0 50%;
       }
 
@@ -267,7 +227,6 @@ $borderRadius_width: 8px;
       height: 100%;
 
       .for-editor-block {
-        display: -webkit-box;
         display: flex;
         min-height: 100%;
       }
@@ -279,21 +238,30 @@ $borderRadius_width: 8px;
         padding: 8px 3px 120px;
         min-width: 30px;
         text-align: center;
+        position: relative;
         &.hidden {
           display: none;
         }
         li {
           list-style: none;
+          &:first-child {
+            position: absolute;
+            z-index: -1;
+          }
         }
       }
 
       // 编辑器主体
       .for-editor-content {
-        -webkit-box-flex: 1;
-        flex: 1;
+        flex-shrink: 0;
         position: relative;
         height: 100%;
         margin-left: 10px;
+        
+        &.for-editor-content-wordwrap {
+          flex: auto;
+          width: 1px;
+        }
 
         pre {
           padding: 8px 0;
@@ -505,17 +473,19 @@ $borderRadius_width: 8px;
           &::before {
             content: " ";
             position: absolute;
-            -webkit-border-radius: 50%;
             border-radius: 50%;
             background: #fc625d;
             width: 12px;
             height: 12px;
             left: 12px;
             margin-top: -20px;
-            -webkit-box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
             box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
             z-index: 2;
             box-sizing: border-box;
+          }
+          & *::-moz-selection {
+            background: #fff;
+            color: $bg_color;
           }
           & *::selection {
             background: #fff;
@@ -659,7 +629,6 @@ $borderRadius_width: 8px;
     // 隐藏编辑区
     .for-editor-edit-hidden {
       width: 0;
-      -webkit-box-flex: 0;
       flex: 0 0 0;
     }
 
@@ -677,23 +646,16 @@ $borderRadius_width: 8px;
       border-radius: 3px;
       box-shadow: 0 0 2px grey;
       padding: 0px;
-      -webkit-transition: height 1s, width 1s;
       transition: height 1s, width 1s;
       overflow: hidden;
 
       > .for-outline-title {
         height: 30px;
         width: 30px;
-        display: -webkit-box;
         display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
         flex-direction: row;
-        -webkit-box-pack: start;
         justify-content: flex-start;
-        -webkit-box-align: center;
         align-items: center;
-        -webkit-transition: width 1s;
         transition: width 1s;
         > i {
           font-size: 28px;
@@ -706,9 +668,7 @@ $borderRadius_width: 8px;
         padding-left: 5px;
         > ul {
           height: 0px;
-          -webkit-transition-delay: 1s;
           transition-delay: 1s;
-          -webkit-transition: height 1s;
           transition: height 1s;
           overflow-x: hidden;
           overflow-y: scroll;
@@ -719,9 +679,7 @@ $borderRadius_width: 8px;
           > li {
             opacity: 0;
             overflow: hidden;
-            -webkit-transition-delay: 1s;
             transition-delay: 1s;
-            -webkit-transition: all 1s;
             transition: all 1s;
           }
         }
@@ -749,7 +707,6 @@ $borderRadius_width: 8px;
             overflow: hidden;
             flex: 0 0 auto;
             opacity: 1;
-            -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;

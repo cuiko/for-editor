@@ -120,6 +120,7 @@ class App extends Component<{}, IS> {
       doubleColumn: '双栏',
       fullscreenOn: '全屏编辑',
       fullscreenOff: '退出全屏',
+      wordwrap: '自动换行',
       addImgLink: '添加图片链接',
       addImg: '上传图片',
       toc: '生成大纲'

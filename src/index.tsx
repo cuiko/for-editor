@@ -57,6 +57,7 @@ interface IS {
   preview: boolean
   expand: boolean
   subfield: boolean
+  wordwrap: boolean
   lineIndex: number
   sValue: string
   words: IWords
@@ -88,6 +89,7 @@ class MdEditor extends React.Component<IP, IS> {
   private $scrollPreview = React.createRef<HTMLDivElement>()
   private $blockEdit = React.createRef<HTMLDivElement>()
   private $blockPreview = React.createRef<HTMLDivElement>()
+  private $lineNumFirstNode = React.createRef<HTMLLIElement>()
   private currentTimeout: number
   private history: Stack<string> = new Stack()
   
@@ -98,6 +100,7 @@ class MdEditor extends React.Component<IP, IS> {
       preview: props.preview,
       expand: props.expand,
       subfield: props.subfield,
+      wordwrap: true,
 
       lineIndex: 1,
       sValue: props.value,
@@ -198,12 +201,13 @@ class MdEditor extends React.Component<IP, IS> {
   }
 
   reLineNum() {
-    const { fontSize } = this.props
     const editHeight: number = parseFloat(
-      this.$vm.current.getBoundingClientRect().height.toFixed(1)
+      this.$vm.current.getBoundingClientRect().height.toFixed(2)
     )
-    const lineHeight: number = parseFloat(fontSize.replace('px', '')) * 1.6
-    const baseHeight: number = Math.ceil((editHeight - 16.0) / lineHeight)
+    const lineHeight: number = parseFloat(
+      this.$lineNumFirstNode.current.getBoundingClientRect().height.toFixed(2)
+    )
+    const baseHeight: number = Math.round(editHeight / lineHeight)
     this.setState({
       lineIndex: baseHeight
     })
@@ -461,18 +465,17 @@ class MdEditor extends React.Component<IP, IS> {
 
   // 右侧菜单
   toolBarRightClick = (type: string): void => {
-    const toolbarRightPreviewClick = () => {
+    const previewClick = () => {
       this.setState({
         preview: !this.state.preview
       })
     }
-    const toolbarRightExpandClick = () => {
+    const expandClick = () => {
       this.setState({
         expand: !this.state.expand
       })
     }
-
-    const toolbarRightSubfieldClick = () => {
+    const subfieldClick = () => {
       const { preview, subfield } = this.state
       if (preview) {
         if (subfield) {
@@ -498,11 +501,19 @@ class MdEditor extends React.Component<IP, IS> {
         }
       }
     }
+    const wordwrapClick = () => {
+      this.setState({
+        wordwrap: !this.state.wordwrap
+      }, () => {
+        this.reHeight()
+      })
+    }
 
     const rightClick: any = {
-      preview: toolbarRightPreviewClick,
-      expand: toolbarRightExpandClick,
-      subfield: toolbarRightSubfieldClick
+      preview: previewClick,
+      expand: expandClick,
+      subfield: subfieldClick,
+      wordwrap: wordwrapClick,
     }
     if (rightClick.hasOwnProperty(type)) {
       rightClick[type]()
@@ -522,7 +533,7 @@ class MdEditor extends React.Component<IP, IS> {
   }
 
   render() {
-    const { preview, expand, subfield, lineIndex, words, sValue } = this.state
+    const { preview, expand, subfield, wordwrap, lineIndex, words, sValue } = this.state
     const {
       placeholder,
       fontSize,
@@ -540,6 +551,10 @@ class MdEditor extends React.Component<IP, IS> {
       'for-editor-edit': true,
       'for-editor-subfield': preview && subfield,
       'for-editor-edit-hidden': preview && !subfield
+    })
+    const editorContentClass = classNames({
+      'for-editor-content': true,
+      'for-editor-content-wordwrap': wordwrap
     })
     const previewClass = classNames({
       'for-panel': true,
@@ -561,7 +576,7 @@ class MdEditor extends React.Component<IP, IS> {
       for (let i = 0; i < lineIndex; i++) {
         list.push(<li key={i + 1}>{i + 1}</li>)
       }
-      return <ul className={lineNumStyles}>{list}</ul>
+      return list
     }
 
     return (
@@ -574,7 +589,6 @@ class MdEditor extends React.Component<IP, IS> {
               words={words}
               onClick={this.toolBarLeftClick}
               addImg={this.addImg}
-              {...this.props}
             />
             <ToolbarRight
               toolbar={toolbar}
@@ -582,6 +596,7 @@ class MdEditor extends React.Component<IP, IS> {
               preview={preview}
               expand={expand}
               subfield={subfield}
+              wordwrap={wordwrap}
               onClick={this.toolBarRightClick}
             />
           </div>
@@ -597,8 +612,11 @@ class MdEditor extends React.Component<IP, IS> {
             onClick={this.focusText}
           >
             <div className="for-editor-block" ref={this.$scrollEdit}>
-              {lineNum()}
-              <div className="for-editor-content">
+              <ul className={lineNumStyles}>
+                <li ref={this.$lineNumFirstNode} key={0}>0</li>
+                {lineNum()}
+              </ul>
+              <div className={editorContentClass}>
                 <pre id="true-value">{value}</pre>
                 <textarea
                   ref={this.$vm}
@@ -625,7 +643,7 @@ class MdEditor extends React.Component<IP, IS> {
           {preview && outline && anchor && (
             <div id="for-outline-box" className="for-outline-box">
               <div className="for-outline-title">
-                <i className="foricon for-icon-outline"></i>
+                <i className="foricon for-icon-outline2"></i>
               </div>
               <div
                 className="for-outline-body"

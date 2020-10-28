@@ -9,6 +9,7 @@ interface IP {
   preview: boolean
   expand: boolean
   subfield: boolean
+  wordwrap: boolean
   words: IWords
 }
 
@@ -24,8 +25,11 @@ class Toolbars extends React.Component<IP, {}> {
   }
 
   render() {
-    const { preview, expand, subfield, toolbar, words } = this.props
+    const { preview, expand, subfield, toolbar, words, wordwrap } = this.props
 
+    const wordwrapActive = classNames({
+      'for-active': wordwrap
+    })
     const previewActive = classNames({
       'for-active': preview
     })
@@ -75,6 +79,16 @@ class Toolbars extends React.Component<IP, {}> {
                 <i className="foricon for-icon-subfield" />
               </li>
             )}
+            {/* 自动换行 */}
+            {toolbar.wordwrap && (
+              <li
+                className={wordwrapActive}
+                onClick={() => this.onClick('wordwrap')}
+                title={`${words.wordwrap} (alt + z)`}
+              >
+                <i className="foricon for-icon-wordwrap" />
+              </li>
+            )}
           </ul>
         </div>
         
@@ -105,6 +119,16 @@ class Toolbars extends React.Component<IP, {}> {
                 ) : (
                   <i className="foricon for-icon-invisible" />
                 )}
+              </li>
+            )}
+            {/* 自动换行 */}
+            {toolbar.wordwrap && (
+              <li
+                className={wordwrapActive}
+                onClick={() => this.onClick('wordwrap')}
+                title={`${words.wordwrap} (alt + z)`}
+              >
+                <i className="foricon for-icon-wordwrap" />
               </li>
             )}
           </ul>
