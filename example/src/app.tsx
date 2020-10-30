@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react'
 import Editor from '../../src/index'
-import { ILanguage, IWords } from '../../src/config'
 import * as styles from './app.module.scss'
 import value from '../static/help.md'
 
@@ -80,10 +79,11 @@ class App extends Component<{}, IS> {
 
   render() {
     const { value, mobile } = this.state
-    const customLang: IWords = {
+    const customLang: ForEditorWords = {
       placeholder: '开始编辑...',
       undo: '上一步',
       redo: '下一步',
+      deleteRow: '删除行',
       h1: '一级标题',
       h2: '二级标题',
       h3: '三级标题',
@@ -219,7 +219,7 @@ class App extends Component<{}, IS> {
           {!mobile && (
             <Editor
               ref={this.$vm}
-              language={this.state.language as ILanguage}
+              language={this.state.language as ForEditorLanguage}
               height="700px"
               value={value}
               addImg={($file) => this.addImg($file)}

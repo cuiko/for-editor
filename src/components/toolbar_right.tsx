@@ -1,16 +1,15 @@
 import * as React from 'react'
 import classNames from 'classnames'
-import { IToolbar, IWords } from '../config'
 import '../lib/css/index.scss'
 
 interface IP {
   onClick: (type: string) => void
-  toolbar: IToolbar
+  toolbar: ForEditorToolbar
   preview: boolean
   expand: boolean
   subfield: boolean
   wordwrap: boolean
-  words: IWords
+  words: ForEditorWords
 }
 
 class Toolbars extends React.Component<IP, {}> {

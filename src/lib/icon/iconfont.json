@@ -6,6 +6,13 @@
   "description": "for-editor-sen",
   "glyphs": [
     {
+      "icon_id": "12730014",
+      "name": "删除线",
+      "font_class": "deleteRow",
+      "unicode": "e67e",
+      "unicode_decimal": 59006
+    },
+    {
       "icon_id": "11316151",
       "name": "代码",
       "font_class": "code",

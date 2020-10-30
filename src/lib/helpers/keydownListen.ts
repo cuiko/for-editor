@@ -43,9 +43,9 @@ export default ($vm: HTMLTextAreaElement, func: any) => {
       // shift +
       switch (e.keyCode) {
         case KEY_CODE.DELETE: {
-          // delete
+          // delete row
           e.preventDefault()
-          func('delete')
+          func('deleteRow')
           break
         }
       }

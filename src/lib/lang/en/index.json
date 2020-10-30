@@ -2,6 +2,7 @@
   "placeholder": "Begin editing...",
   "undo": "Undo",
   "redo": "Redo",
+  "deleteRow": "Delete Row",
   "save": "Save",
   "wordwrap": "Word Warp",
   "h1": "Heading 1",

@@ -20,6 +20,7 @@
 ## Todo
 
 - [x] 快捷键`Alt` + `z`切换自动换行
+- [x] 快捷键`shift` + `del`删除当前行
 - [ ] README_EN.md
 - [ ] 编写`markdown-it`拓展，提供插入自定义`iframe`的支持，方便插入视频
 - [ ] 提供相册(多张图片展示)支持
@@ -27,7 +28,6 @@
 - [ ] 提供首字下沉支持
 - [ ] 其他语言的支持
 - [ ] ~~提供音乐播放器支持~~
-- [ ] ~~快捷键`shift` + `del`删除当前行~~
 
 ## Install
 
@@ -112,7 +112,7 @@ ReactDOM.render(<App />, document.getElementById('root'))
   | realtimeRender | boolean | false | 是否实时渲染 |
   | realtimeRenderDelay | number | 50 | 异步渲染间隔，单位：毫秒 |
   | lineNum | boolean | true | 是否显示行号 |
-  | language | ILanguage / IWords | en | 默认语言 |
+  | language | ForEditorLanguage / ForEditorWords | en | 默认语言 |
   | preview | boolean | false | 是否显示预览 |
   | expand | boolean | false | 是否全屏 |
   | subfield | boolean | false | 是否双栏显示(预览模式激活下有效) |
@@ -136,9 +136,10 @@ ReactDOM.render(<App />, document.getElementById('root'))
 toolbar: {
   undo: true,
   redo: true,
+  deleteRow: true,
   save: true,
   h: {
-    heading: true, // 是否显示
+    heading: true,
     h1: true,
     h2: true,
     h3: true,
@@ -147,7 +148,7 @@ toolbar: {
     h6: true,
   },
   para: {
-    paragraph: true, // 是否显示
+    paragraph: true,
     italic: true,
     bold: true,
     boldItalic: true,
@@ -179,17 +180,18 @@ toolbar: {
 ```
 
 ```ts
-// ILanguage 说明
-type ILanguage = 'zh-CN' | 'en'
+// ForEditorLanguage 说明
+type ForEditorLanguage = 'zh-CN' | 'en'
 ```
 
 ```ts
-// IWords 说明
-interface IWords {
+// ForEditorWords 说明
+interface ForEditorWords {
   placeholder?: string
 
   undo?: string
   redo?: string
+  deleteRow?: string
   save?: string
 
   h1?: string
@@ -238,7 +240,7 @@ interface IWords {
   singleColumn?: string
   doubleColumn?: string
   wordwrap?: string
-}
+}  
 ```
 
 ### Events
@@ -268,7 +270,6 @@ class App extends React.Component {
   }
 
   addImg($file: File) {
-    console.log($file) // The $file type is File
     // upload file => success => call $img2Url
     this.$vm.current.$img2Url($file.name, 'file_url')
   }
@@ -297,12 +298,13 @@ class App extends React.Component {
 | ctrl + z | undo        |
 | ctrl + y | redo        |
 | alt + z  | word wrap   |
+| shift + del | delete row |
 
 ## Bug
 
 是的，它有一些小毛病
 
-1. 撤销、重做后光标会到最后一行，而不是上次操作的位置
+1. ~~撤销、重做后光标会到最后一行，而不是上次操作的位置~~
 2. ~~在不同的缩放下，行号会有不同的显示~~
 
 ## Update

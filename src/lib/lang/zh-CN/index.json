@@ -2,6 +2,7 @@
   "placeholder": "开始编辑...",
   "undo": "上一步",
   "redo": "下一步",
+  "deleteRow": "删除行",
   "save": "保存",
   "wordwrap": "自动换行",
   "h1": "一级标题",

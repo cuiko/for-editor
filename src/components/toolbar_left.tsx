@@ -1,12 +1,11 @@
 import * as React from 'react'
-import { IToolbar, IWords } from '../config'
 import '../lib/css/index.scss'
 
 interface IP {
   onClick: (type: string) => void
   addImg: (file: File, index: number) => void
-  toolbar: IToolbar
-  words: IWords
+  toolbar: ForEditorToolbar
+  words: ForEditorWords
 }
 
 interface IS {
@@ -187,6 +186,12 @@ class Toolbars extends React.Component<IP, IS> {
             {toolbar.redo && (
               <li onClick={() => this.onClick('redo')} title={`${words.redo} (ctrl + y)`}>
                 <i className="foricon for-icon-redo" />
+              </li>
+            )}
+            {/* 删除行 */}
+            {toolbar.deleteRow && (
+              <li onClick={() => this.onClick('deleteRow')} title={`${words.deleteRow} (shift + del)`}>
+                <i className="foricon for-icon-deleteRow" />
               </li>
             )}
             {/* 保存 */}
@@ -465,6 +470,12 @@ class Toolbars extends React.Component<IP, IS> {
             {toolbar.redo && (
               <li onClick={() => this.onClick('redo')} title={`${words.redo} (ctrl + y)`}>
                 <i className="foricon for-icon-redo" />
+              </li>
+            )}
+            {/* 删除行 */}
+            {toolbar.deleteRow && (
+              <li onClick={() => this.onClick('deleteRow')} title={`${words.deleteRow} (shift + del)`}>
+                <i className="foricon for-icon-deleteRow" />
               </li>
             )}
             {/* 保存 */}

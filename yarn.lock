@@ -942,10 +942,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@cuiko/eslint-config@^1.0.0":
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/@cuiko/eslint-config/-/eslint-config-1.0.3.tgz#e3d5e88d8fcb230f87dbb06de89dff7f8080ba8d"
-  integrity sha512-o2210cdPjf40RQtMEwbe57y4hxgHXSoeNGn+VUQ5umuLafRA0PdJGYfhb3/YcXJ5lnbWZpIH+Lkh7eIC/GJhSA==
+"@cuiko/eslint-config@1.0.4":
+  version "1.0.4"
+  resolved "https://registry.npmjs.org/@cuiko/eslint-config/-/eslint-config-1.0.4.tgz#2c470f282534e869e774245cad737a077a45f469"
+  integrity sha512-t+pKQaZO7eLIiE4fW8l2rJfWwPX1vaepS4PnFGr6o71FvdpxkfEuq2oBFGEEzXqR6jxob1OPMsiqXZUiVcT5jw==
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"

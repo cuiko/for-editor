@@ -47,7 +47,7 @@
     "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
-    "@cuiko/eslint-config": "^1.0.0",
+    "@cuiko/eslint-config": "1.0.4",
     "@types/classnames": "^2.2.9",
     "@types/emojione": "^2.2.6",
     "@types/jest": "^26.0.14",

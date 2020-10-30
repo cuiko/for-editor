@@ -4,9 +4,9 @@ import markdownIt from './lib/helpers/markdownIt'
 import keydownListen from './lib/helpers/keydownListen'
 import ToolbarLeft from './components/toolbar_left'
 import ToolbarRight from './components/toolbar_right'
-import CONFIG, { ILanguage, IToolbar, IWords } from './config'
+import CONFIG from './config'
 import Stack from './lib/helpers/stack'
-import { insertText, asyncMaker } from './lib/helpers/function'
+import { insertText, deleteCursorLine, asyncMaker } from './lib/helpers/function'
 import { outlined, generateTOC } from './lib/helpers/outlined'
 const elementResizeDetectorMaker = require('element-resize-detector')
 
@@ -23,47 +23,7 @@ interface IInsertTextObj {
   }
 }
 
-// 组件选项
-interface IP {
-  // 基本参数
-  fontSize?: string
-  disabled?: boolean
-  height?: string
-  placeholder?: string
-  style?: object
-  value?: string
-  
-  // 组件参数
-  realtimeRender?: boolean // 是否实时渲染
-  realtimeRenderDelay?: number // 实时渲染延时
-  lineNum?: boolean
-  language?: ILanguage | IWords
-  preview?: boolean
-  expand?: boolean
-  subfield?: boolean
-  toolbar?: IToolbar
-  anchor?: boolean // 标题锚点
-  outline?: boolean // 大纲
-  highlight: () => string // highlight
-  
-  // 事件回调
-  onChange?: (value: string) => void
-  onSave?: (value: string, parsed: string) => void
-  addImg?: (file: File, index: number) => void
-}
-
-// 组件状态
-interface IS {
-  preview: boolean
-  expand: boolean
-  subfield: boolean
-  wordwrap: boolean
-  lineIndex: number
-  sValue: string
-  words: IWords
-}
-
-class MdEditor extends React.Component<IP, IS> {
+class MdEditor extends React.Component<ForEditorP, ForEditorS> {
   // 默认属性
   static defaultProps = {
     realtimeRender: false,
@@ -93,7 +53,7 @@ class MdEditor extends React.Component<IP, IS> {
   private currentTimeout: number
   private history: Stack<string> = new Stack()
   
-  constructor(props: IP) {
+  constructor(props: ForEditorP) {
     super(props)
 
     this.state = {
@@ -111,6 +71,7 @@ class MdEditor extends React.Component<IP, IS> {
   componentDidMount() {
     keydownListen(this.$vm.current, (type: string) => {
       this.toolBarLeftClick(type)
+      this.toolBarRightClick(type)
     })
     this.initLanguage()
 
@@ -132,7 +93,7 @@ class MdEditor extends React.Component<IP, IS> {
     })
   }
 
-  componentDidUpdate(preProps: IP) {
+  componentDidUpdate(preProps: ForEditorP) {
     const { value, preview, expand, subfield, language } = this.props
     const { history } = this
     if (preProps.value !== value) {
@@ -162,6 +123,7 @@ class MdEditor extends React.Component<IP, IS> {
     // 在此添加渲染函数
   }
 
+  // 初始化语言
   initLanguage = (): void => {
     const { language } = this.props
     if (typeof language === 'string') {
@@ -176,7 +138,8 @@ class MdEditor extends React.Component<IP, IS> {
     }
   }
 
-  realtimeRenderChange(value: string, callback?: (value?: string) => void) {
+  // 渲染value
+  renderChange(value: string, callback?: (value?: string) => void) {
     const { realtimeRender, realtimeRenderDelay } = this.props
     
     callback && callback(value)
@@ -197,9 +160,10 @@ class MdEditor extends React.Component<IP, IS> {
   // 输入框改变
   handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
     const value = e.target.value
-    this.realtimeRenderChange(value, this.props.onChange)
+    this.renderChange(value, this.props.onChange)
   }
 
+  // 重新计算行号
   reLineNum() {
     const editHeight: number = parseFloat(
       this.$vm.current.getBoundingClientRect().height.toFixed(2)
@@ -213,6 +177,7 @@ class MdEditor extends React.Component<IP, IS> {
     })
   }
 
+  // 重新计算输入框高度
   reHeight() {
     this.$vm.current.style.height = ''
     this.$vm.current.style.height = this.$vm.current.scrollHeight + 'px'
@@ -231,27 +196,41 @@ class MdEditor extends React.Component<IP, IS> {
     history.push(value)
   }
 
+  // 重置光标位置
+  resetCursorPosition = ($vm: HTMLTextAreaElement, callback: () => void) => {
+    let start = $vm.selectionStart 
+    callback()
+    setTimeout(() => {
+      $vm.selectionStart = start
+      $vm.selectionEnd = start
+    })
+  }
+
   // 撤销
   undo = (): void => {
-    let { history } = this
-    let prevValue = history.prev()
-    this.props.onChange(prevValue)
-    this.setState({
-      sValue: prevValue,
+    this.resetCursorPosition(this.$vm.current, () => {
+      let { history } = this
+      let prevValue = history.prev()
+      this.props.onChange(prevValue)
+      this.setState({
+        sValue: prevValue,
+      })
     })
   }
 
   // 重做
   redo = (): void => {
-    let { history } = this
-    let nextValue = history.next()
-    this.props.onChange(nextValue)
-    this.setState({
-      sValue: nextValue,
+    this.resetCursorPosition(this.$vm.current, () => {
+      let { history } = this
+      let nextValue = history.next()
+      this.props.onChange(nextValue)
+      this.setState({
+        sValue: nextValue,
+      })
     })
   }
 
-  // 菜单点击
+  // 左侧菜单点击
   toolBarLeftClick = (type: string): void => {
     const { words } = this.state
     const insertTextObj: IInsertTextObj = {
@@ -437,9 +416,13 @@ class MdEditor extends React.Component<IP, IS> {
       undo: this.undo,
       redo: this.redo,
       save: this.save,
-      // delete: () => {
-      //   this.$vm.current.selectionStart = 0
-      // }
+      deleteRow: () => {
+        const value = deleteCursorLine(this.$vm.current)
+        this.props.onChange(value) 
+        this.setState({
+          sValue: value
+        })
+      }
     }
     if (otherLeftClick.hasOwnProperty(type)) {
       otherLeftClick[type]()
@@ -451,6 +434,7 @@ class MdEditor extends React.Component<IP, IS> {
     this.props.addImg(file, index)
   }
 
+  // 插入链接到输入框
   public $img2Url = (name: string, url: string) => {
     const value = insertText(this.$vm.current, {
       prefix: `![${name}](${url})`,
@@ -463,7 +447,7 @@ class MdEditor extends React.Component<IP, IS> {
     })
   }
 
-  // 右侧菜单
+  // 右侧菜单点击
   toolBarRightClick = (type: string): void => {
     const previewClick = () => {
       this.setState({
@@ -520,10 +504,12 @@ class MdEditor extends React.Component<IP, IS> {
     }
   }
 
+  // 聚焦
   focusText = (): void => {
     this.$vm.current!.focus()
   }
 
+  // 滚动同步
   handleScoll = (e: React.UIEvent<HTMLDivElement>): void => {
     const radio =
       this.$blockEdit.current!.scrollTop /
